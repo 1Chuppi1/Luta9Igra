@@ -12,15 +12,12 @@ namespace Game
         string _name;
         double _damage;
         double _hp;
-        double _def;
-        double _reward;
 
         public Mama(string name, double damage, double hp, double reward)
         {
             _name = name;
             _damage = damage;
             _hp = hp;
-            _reward = reward;
         }
 
         public string name
@@ -37,11 +34,6 @@ namespace Game
         {
             get => _hp;
             set => _hp = value;
-        }
-        public double reward
-        {
-            get => _reward;
-            set => _reward = value;
         }
     }
 }

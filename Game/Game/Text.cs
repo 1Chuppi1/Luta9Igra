@@ -21,6 +21,14 @@ namespace Game
                     Console.WriteLine("X  Задача №3: Оттарабанить сложнейшего босса в этой игрушке странной  X");
                     Console.WriteLine("X  В общем и целом, удачи в поисках и желаю не умереть                X");
                     Console.WriteLine("X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X Х Х Х X X X");
+            Console.ReadLine();
                }
+
+        public void final()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Поздравляю мой милый петушек... Можешь покидать данную игру и удачи на практике");
+        }
     }
 }

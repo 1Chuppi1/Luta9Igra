@@ -15,37 +15,60 @@ namespace Game
             Player player = new Player("Петух", 40, 1000);
             Oleg oleg = new Oleg("Олег - слабочек", 20, 400, 5);
             Anton anton = new Anton("Антон - Качек", 30, 600, 8);
-            Mama mama = new Mama("Ну а это мать... Ебнутая", 50, 1000, 15);
+            Mama mama = new Mama("Ну а это мать...", 50, 1000, 15);
             Papa papa = new Papa("Бухой Батек...", 100, 1500, 40);
             Boss boss = new Boss("НЕВЕРОЯТНЫЙ БОСС ЧТОБ ПОЛУЧИТЬ ТРЫНДЫ", 300, 5000, 1000);
+            Console.Clear();
 
-            int choise = Convert.ToInt32(Console.ReadLine());
-            switch (choise)
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("И так Петушек, пора тебе повоевать.\n");
+            
+            while (true)
             {
-                case 1:
-                    lvl_hp();
-                    break;
-                case 2:
-                    lvl_dm();
-                    break;
-                case 3:
-                    Battle_oleg();
-                    break;
-                case 4:
-                    Battle_Ork();
-                    break;
-                case 5:
-                    Battle_Wizard();
-                    break;
-                case 6:
-                    final();
-                    break;
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine(" 1 - Магазин, в котором ты купишь ХП.(Цена: 6 монет) \n 2 - Магазин, в котором ты купишь ДАМААААГ.(Цена: 8 монет) \n 3 - Бой с Олегом (400 ХП, 20 Дамага). \n 4 - Бой с Антоном (600 ХП, 30 Дамага). \n 5 - Бой с Мамой (1000 ХП, 40 Дамага). \n 6 - Бой с Бухим батьком (1500 ХП, 100 Дамага). \n 7 - Битва с босом. \n 8 - Выход из игры.");
+                Console.ForegroundColor = ConsoleColor.White;
+                int choise = Convert.ToInt32(Console.ReadLine());
+                switch (choise)
+                {
+                    case 1:
+                        Console.Clear();
+                        lvl_hp();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        lvl_dm();
+                        break;
+                    case 3:
+                        Console.Clear();
+                        Battle_Oleg();
+                        break;
+                    case 4:
+                        Console.Clear();
+                        Battle_Anton();
+                        break;
+                    case 5:
+                        Console.Clear();
+                        Battle_mama();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        Battle_papa();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        Battle_Boss();
+                        break;
+                    case 8:
+                        Console.Clear();
+                        final();
+                        break;
+                }
             }
-
-
-            //МЕТОДЫ
-            //Качалка ХП епта
-            void lvl_hp()
+            
+        //МЕТОДЫ
+        //Качалка ХП епта
+        void lvl_hp()
             {
 
                 if (player.Coins < 6)
@@ -56,7 +79,7 @@ namespace Game
                 }
                 else
                 {
-                    player.hp = player.hp += 800;
+                    player.hp = player.hp += 1500;
 
                     Console.WriteLine($"вы выбрали бафф хп, количество ваших хп {player.hp}");
                     Console.ForegroundColor = ConsoleColor.Yellow;
@@ -74,13 +97,13 @@ namespace Game
                 if (player.Coins < 8)
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("у вас не хватает монет");
+                    Console.WriteLine("У вас не хватает монет");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
                 else
                 {
-                    player.damage = player.damage += 15;
-                    Console.WriteLine($"вы выбрали бафф урона, количество вашего урона {player.damage}");
+                    player.damage = player.damage += 25;
+                    Console.WriteLine($"Вы выбрали увелечение урона, количество вашего урона {player.damage}");
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine($"Монет осталось: {player.Coins -= 8}");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -94,21 +117,24 @@ namespace Game
             {
                 if (player.hp > 0)
                 {
-                    Console.WriteLine($"Вы начали битву со скелетом по имени Константин");
+
+                    Console.WriteLine($"Вы начали битву с Олежкой");
                     while (player.hp > 0 && oleg.hp > 0)
                     {
 
-                        Console.WriteLine($"Петучь бьет оставляя Олежке {oleg.hp -= player.damage} здоровья");
-                        Console.WriteLine($"Константин бьет оставляя Люсьену {player.hp -= oleg.damage} здоровья");
+                        Console.WriteLine($"Вы бьете оставляя Олежке {oleg.hp -= player.damage} здоровья");
+                        Console.WriteLine($"Олежик бьет оставляя Петуху {player.hp -= oleg.damage} здоровья");
                     }
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\nВы победили и получили 1 монетку.  Монет в сумке {player.Coins += 1}");
+                    Console.WriteLine($"\nВы победили и получили 2 монетку.  Монет в сумке {player.Coins += 2}");
                     Console.ForegroundColor = ConsoleColor.White;
                     oleg.hp += 500;
                 }
                 else if (player.hp <= 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Помер Малыш");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
 
@@ -117,67 +143,69 @@ namespace Game
             {
                 if (player.hp > 0)
                 {
-                    Console.WriteLine($"Вы начали битву со орком по имени Ляррррва");
+                    Console.WriteLine($"Вы начали битву с Антошкой");
                     while (player.hp > 0 && anton.hp > 0)
                     {
-                        Console.WriteLine($"Люсьен бьет оставляя Ляррррве {anton.hp -= player.damage} здоровья");
-                        Console.WriteLine($"Ляррррва бьет оставляя Люсьену{player.hp -= anton.damage} здоровья");
+                        Console.WriteLine($"Вы бьете оставляя Антошке {anton.hp -= player.damage} здоровья");
+                        Console.WriteLine($"Антон Павлович бьет оставляя Петуху{player.hp -= anton.damage} здоровья");
                     }
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\nВы победили и получили 3 монетки.  Монет в сумке {player.Coins += 3}");
+                    Console.WriteLine($"\nВы победили и получили 5 монетки.  Монет в сумке {player.Coins += 5}");
                     Console.ForegroundColor = ConsoleColor.White;
                     anton.hp += 700;
                 }
                 else if (player.hp <= 0)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Помер Малыш");
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
 
             // MAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-            void Battle_Wizard()
+            void Battle_papa()
             {
                 if (player.hp > 0)
                 {
-                    Console.WriteLine($"Вы начали битву с магом по имени Якубович");
+                    Console.WriteLine($"Вы начали битву с Бухим батей");
                     while (player.hp > 0 && mama.hp > 0)
                     {
-                        Console.WriteLine($"Люсьен бьет оставляя Якубовичу {mama.hp -= player.damage} здоровья");
-                        Console.WriteLine($"Якубович бьет оставляя Люсьену {player.hp -= mama.damage} здоровья");
+                        Console.WriteLine($"Вы бьете оставляя Бате {papa.hp -= player.damage} здоровья");
+                        Console.WriteLine($"Батек бьет оставляя Петуху {player.hp -= papa.damage} здоровья");
                     }
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($" \n Вы победили и получили 7 монеток.  Монет в сумке {player.Coins += 7}");
+                    Console.WriteLine($" \n Вы победили и получили 15 монеток.  Монет в сумке {player.Coins += 15}");
                     Console.ForegroundColor = ConsoleColor.White;
                     mama.hp += 900;
                 }
                 else if (player.hp <= 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Ты сдох");
+                    Console.WriteLine("Помер Малыш");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             }
 
             // PAAAAAAAAAAAAPAAAAAAAAAAAAAAAAAA
-            void Battle_Papa()
+            void Battle_mama()
             {
                 if (player.hp > 0)
                 {
-                    Console.WriteLine($"Вы начали битву с магом по имени Якубович");
+                    Console.WriteLine($"Вы начали битву с мамкой");
                     while (player.hp > 0 && papa.hp > 0)
                     {
-                        Console.WriteLine($"Люсьен бьет оставляя Якубовичу {papa.hp -= player.damage} здоровья");
-                        Console.WriteLine($"Якубович бьет оставляя Люсьену {player.hp -= papa.damage} здоровья");
+                        Console.WriteLine($"Вы бьете оставляя Маме {mama.hp -= player.damage} здоровья");
+                        Console.WriteLine($"Мамка бьет оставляя Люсьену {player.hp -= mama.damage} здоровья");
                     }
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($" \n Вы победили и получили 7 монеток.  Монет в сумке {player.Coins += 7}");
+                    Console.WriteLine($" \n Вы победили и получили 7 монеток.  Монет в сумке {player.Coins += 10}");
                     Console.ForegroundColor = ConsoleColor.White;
                     papa.hp += 900;
                 }
                 else if (player.hp <= 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Ты сдох");
+                    Console.WriteLine("Помер Малыш");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             }
@@ -186,21 +214,21 @@ namespace Game
             {
                 if (player.hp > 0)
                 {
-                    Console.WriteLine($"Вы начали битву с магом по имени Якубович");
+                    Console.WriteLine($"Вы начали битву с магом по имени ЛОПУХ ЕПТИТЬ");
                     while (player.hp > 0 && boss.hp > 0)
                     {
-                        Console.WriteLine($"Люсьен бьет оставляя Якубовичу {boss.hp -= player.damage} здоровья");
-                        Console.WriteLine($"Якубович бьет оставляя Люсьену {player.hp -= boss.damage} здоровья");
+                        Console.WriteLine($"Вы бьете оставляя Якубовичу {boss.hp -= player.damage} здоровья");
+                        Console.WriteLine($"Боссик бьет оставляя Люсьену {player.hp -= boss.damage} здоровья");
                     }
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($" \n Вы победили и получили 7 монеток.  Монет в сумке {player.Coins += 7}");
+                    Console.WriteLine($" \n Вы победили и получили 7 монеток.  Монет в сумке {player.Coins += 45}");
                     Console.ForegroundColor = ConsoleColor.White;
                     boss.hp += 900;
                 }
                 else if (player.hp <= 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Ты сдох");
+                    Console.WriteLine("Помер Малыш");
                     Console.ForegroundColor = ConsoleColor.White;
                 }
             }
@@ -208,10 +236,10 @@ namespace Game
 
             void final()
             {
-                if (player.Coins < 1000)
+                if (player.Coins < 500)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("\n Чепух, иди попиздись для начала, что б пришел с 1000 монеток... \n");
+                    Console.WriteLine("\n Чепух, иди бейся петух для начала, что б пришел с 1000 монеток... \n");
                     Console.ForegroundColor = ConsoleColor.White;
 
                 }

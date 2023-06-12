@@ -6,3 +6,11 @@ C:\Users\coffe\source\repos\Game\Game\obj\Debug\Game.csproj.SuggestedBindingRedi
 C:\Users\coffe\source\repos\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\coffe\source\repos\Game\Game\obj\Debug\Game.exe
 C:\Users\coffe\source\repos\Game\Game\obj\Debug\Game.pdb
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\bin\Debug\Game.exe.config
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\bin\Debug\Game.exe
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\bin\Debug\Game.pdb
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\obj\Debug\Game.csproj.SuggestedBindingRedirects.cache
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\obj\Debug\Game.exe
+C:\Users\coffe\OneDrive\Рабочий стол\Game\Game\obj\Debug\Game.pdb
